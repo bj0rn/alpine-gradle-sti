@@ -1,0 +1,11 @@
+ {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "alpine-gradle-sti",
+        "labels": {
+          "application": "alpine-gradle-sti"
+        }
+      }
+    },
+

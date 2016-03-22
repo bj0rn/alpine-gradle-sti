@@ -1,0 +1,39 @@
+{
+      "kind": "BuildConfig",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "alpine-gradle-sti",
+        "labels": {
+          "application": "alpine-gradle-sti"
+        }
+      },
+      "spec": {
+        "source": {
+          "type": "Git",
+          "git": {
+            "uri": "https://github.com/bj0rn/alpine-gradle-sti.git",
+            "ref": "master"
+          },
+          "contextDir": "jenkins"
+        },
+        "strategy": {
+          "type": "Docker",
+          "dockerStrategy": {
+            "forcePull": true
+          }
+        },
+        "output": {
+          "to": {
+            "kind": "ImageStreamTag",
+            "name": "alpine-gradle-sti:latest"
+          }
+        },
+        "triggers": [
+          {
+            "type": "ImageChange",
+            "imageChange": {}
+          }
+        ]
+      }
+    },
+
