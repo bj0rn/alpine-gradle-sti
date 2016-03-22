@@ -20,8 +20,13 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
   mv /tmp/artifacts/. ./
 fi
 
-echo "---> Installing application source..."
-cp -Rf /tmp/src/. ./
+echo "---> Compiling application source..."
+cd /tmp/src
+./gradlew build
 
-echo "---> Building application from source..."
-# TODO: Add build steps for your application, eg npm install, bundle install
+cp -Rf package /home
+
+echo "---> Moving package to app folder"
+cp -Rf package /home
+
+
